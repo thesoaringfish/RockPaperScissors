@@ -6,6 +6,82 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <script>
+        function playGame(){
+            let humanScore = 0;
+            let computerScore = 0;
+
+            function getRandomInt(max) {
+                return Math.floor(Math.random() * max);
+            }
+            
+            function getComputerChoice(){
+            let randomNumber = getRandomInt(3);
+
+                if (randomNumber === 0){
+                    return "rock";
+                } else if (randomNumber === 1) {
+                    return "paper";
+                } else {
+                    return "scissors";
+                }
+            }
+
+
+        function getHumanChoice(){
+           let humanAnswer = prompt("Rock, Paper, or Scissors?");
+           return humanAnswer;
+        }
+
+        function playRound(humanChoice, computerChoice){
+            let humanChoiceLower = humanChoice.toLowerCase();
+            if (humanChoiceLower === computerChoice){
+                console.log(`Its a tie both chose ${humanChoiceLower}`)
+                } else if (
+                (humanChoiceLower === "rock" && computerChoice === "scissors") ||
+                (humanChoiceLower === "paper" && computerChoice === "rock") ||
+                (humanChoiceLower === "scissors" && computerChoice === "paper")) {
+                    console.log(`We win ${humanChoiceLower} beats ${computerChoice}!`);
+                    humanScore++;
+                }
+                else {
+                console.log(`You lose! ${computerChoice} beats ${humanChoiceLower}!`);
+                computerScore++;
+            };
+        }
+
+        const humanSelection1 = getHumanChoice();
+        const computerSelection1 = getComputerChoice();
+        playRound(humanSelection1, computerSelection1);
+
+        const humanSelection2 = getHumanChoice();
+        const computerSelection2 = getComputerChoice();
+        playRound(humanSelection2, computerSelection2);
+
+        const humanSelection3 = getHumanChoice();
+        const computerSelection3 = getComputerChoice();
+        playRound(humanSelection3, computerSelection3);
+
+        const humanSelection4 = getHumanChoice();
+        const computerSelection4 = getComputerChoice();
+        playRound(humanSelection4, computerSelection4);
+
+        const humanSelection5 = getHumanChoice();
+        const computerSelection5 = getComputerChoice();
+        playRound(humanSelection5, computerSelection5);
+
+        if (humanScore > computerScore){
+            console.log(` HUMAN RACE STRONG! Final score ${humanScore} - ${computerScore}! `);
+        } else if (computerScore > humanScore){
+            console.log(`COMPUTER MASTER RACE! Final score ${computerScore} - ${humanScore}`);
+        } else {
+            console.log(` ITS A TIE!`);
+        }
+
+        }
+
+        playGame();
+
+    </script>
 </body>
 </html>
